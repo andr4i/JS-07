@@ -52,6 +52,7 @@ const createDescription = () => {
         pokemon_name: document.createElement('h2'),
         id: document.createElement('h3'),
         ability: document.createElement('p'),
+        peso: document.createElement('p'),
         image: document.createElement('img')
     }
     return pokeElements;
@@ -61,13 +62,14 @@ const populateElements = (pokemon, pokeElements) => {
     pokeElements.pokemon_name.textContent = pokemon.name;
     pokeElements.id.textContent = "ID: " + String(pokemon.id);
     pokeElements.ability.textContent = "Habilidad: "+String(pokemon.abilities[0].ability.name);
+    pokeElements.peso.textContent = "Peso: "+String(pokemon.weight)+" lbs."; //Supongo que son libras
     pokeElements.image.src = pokemon.sprites.front_default;
     return pokeElements;
 }
 
 
 const renderElements = (pokemon, pokeElements) => {
-    pokemon.append(pokeElements.pokemon_name, pokeElements.id, pokeElements.ability,pokeElements.image);
+    pokemon.append(pokeElements.pokemon_name, pokeElements.id, pokeElements.ability,pokeElements.peso,pokeElements.image);
 }
 
 const joinProcess = (pokemon) => {
